@@ -340,6 +340,35 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{
 .pub-lead{margin:0;font-size:1rem;line-height:1.6;color:var(--ink-soft)}
 .pub-actions{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:.6rem}
 
+.pub-sources{margin:0;font-size:.94rem;color:var(--ink)}
+.pub-sources summary{
+  cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.15rem 0;
+  font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--accent,#1E3A5F);font-weight:600;
+  transition:color .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.pub-sources summary::-webkit-details-marker{display:none}
+.pub-sources summary::before{
+  content:"";width:.55rem;height:.55rem;
+  border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+  transform:rotate(45deg);margin-right:.1rem;
+  transition:transform .2s ease;
+}
+.pub-sources[open] summary::before{transform:rotate(225deg);margin-top:.25rem}
+.pub-sources summary:hover{color:var(--ink)}
+.pub-sources-list{
+  margin:.9rem 0 0;padding:0 0 0 1.4rem;
+  display:grid;gap:.4rem;
+  font-size:.92rem;line-height:1.45;color:var(--ink-soft);
+  font-feature-settings:"lnum";
+}
+.pub-sources-list li{padding-left:.15rem}
+.pub-sources-list li::marker{color:var(--ink-soft);font-weight:600}
+.src-author{color:var(--ink);font-weight:600}
+
 .pub-model{
   margin:0;padding:1.75rem;
   background:var(--surface-alt,#F3F1EC);
