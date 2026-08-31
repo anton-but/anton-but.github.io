@@ -319,11 +319,15 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{
 
 /* ---------- Публикации ---------- */
 .pub-card{
-  display:grid;gap:2rem;
+  display:grid;grid-template-columns:1fr;gap:2rem;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   padding:clamp(1.75rem,3vw,2.5rem) 0;
+  align-items:start;
 }
-.pub-header{display:grid;gap:.65rem;max-width:56rem}
+@media (min-width:900px){
+  .pub-card{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:3rem}
+}
+.pub-copy{max-width:56rem;display:grid;gap:.85rem;align-content:start}
 .pub-meta{
   margin:0;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-soft);font-weight:600;
@@ -333,36 +337,37 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{
   font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2;
   margin:0;color:var(--ink);letter-spacing:-.01em;
 }
-.pub-lead{margin:.25rem 0 0;font-size:1rem;line-height:1.6;color:var(--ink-soft);max-width:52rem}
+.pub-lead{margin:0;font-size:1rem;line-height:1.6;color:var(--ink-soft)}
+.pub-actions{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:.6rem}
+
 .pub-model{
-  display:grid;gap:1.25rem;
-  grid-template-columns:1fr;
-  padding:1.5rem;background:var(--surface-alt,#F3F1EC);
-  border:1px solid var(--line);border-radius:6px;
+  margin:0;padding:1.75rem;
+  background:var(--surface-alt,#F3F1EC);
+  border:1px solid var(--line);border-radius:8px;
 }
-@media (min-width:780px){.pub-model{grid-template-columns:repeat(3,1fr);gap:2rem}}
-.pub-group{display:grid;gap:.65rem}
-.pub-group-label{
-  margin:0;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+.pub-model-title{
+  margin:0 0 1.1rem;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+.pub-comp{margin:0;padding:0;list-style:none;display:grid;gap:.55rem}
+.pub-comp-head{
+  margin:.9rem 0 .2rem;
+  font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--accent,#1E3A5F);font-weight:700;
 }
-.pub-comp-list{margin:0;padding:0;list-style:none;display:grid;gap:.55rem;counter-reset:pubcomp}
-.pub-comp-list[start="1"]{counter-reset:pubcomp 0}
-.pub-comp-list[start="4"]{counter-reset:pubcomp 3}
-.pub-comp-list[start="8"]{counter-reset:pubcomp 7}
-.pub-comp-list li{
-  position:relative;padding-left:2.1rem;
-  font-size:.94rem;line-height:1.45;color:var(--ink);font-feature-settings:"lnum";
+.pub-comp-head:first-child{margin-top:0}
+.pub-comp-item{
+  display:grid;grid-template-columns:1.8rem 1fr;align-items:baseline;gap:.75rem;
+  font-size:.96rem;line-height:1.45;color:var(--ink);
 }
-.pub-comp-list li::before{
-  counter-increment:pubcomp;content:counter(pubcomp);
-  position:absolute;left:0;top:0;
-  width:1.55rem;height:1.55rem;border-radius:50%;
+.pub-num{
   display:inline-flex;align-items:center;justify-content:center;
+  width:1.7rem;height:1.7rem;border-radius:50%;
   background:var(--accent,#1E3A5F);color:#fff;
   font-size:.78rem;font-weight:700;font-feature-settings:"lnum";
+  align-self:start;
 }
-.pub-actions{display:flex;gap:.85rem;flex-wrap:wrap}
 
 /* ---------- Образование ---------- */
 .edu-list{display:grid;gap:0;border-top:1px solid var(--line)}
