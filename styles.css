@@ -317,6 +317,53 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{
 }
 @media (max-width:879px){.awards-figure img{aspect-ratio:1/1;object-position:50% 22%}}
 
+/* ---------- Публикации ---------- */
+.pub-card{
+  display:grid;gap:2rem;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:clamp(1.75rem,3vw,2.5rem) 0;
+}
+.pub-header{display:grid;gap:.65rem;max-width:56rem}
+.pub-meta{
+  margin:0;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+.pub-title{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.2;
+  margin:0;color:var(--ink);letter-spacing:-.01em;
+}
+.pub-lead{margin:.25rem 0 0;font-size:1rem;line-height:1.6;color:var(--ink-soft);max-width:52rem}
+.pub-model{
+  display:grid;gap:1.25rem;
+  grid-template-columns:1fr;
+  padding:1.5rem;background:var(--surface-alt,#F3F1EC);
+  border:1px solid var(--line);border-radius:6px;
+}
+@media (min-width:780px){.pub-model{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.pub-group{display:grid;gap:.65rem}
+.pub-group-label{
+  margin:0;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent,#1E3A5F);font-weight:700;
+}
+.pub-comp-list{margin:0;padding:0;list-style:none;display:grid;gap:.55rem;counter-reset:pubcomp}
+.pub-comp-list[start="1"]{counter-reset:pubcomp 0}
+.pub-comp-list[start="4"]{counter-reset:pubcomp 3}
+.pub-comp-list[start="8"]{counter-reset:pubcomp 7}
+.pub-comp-list li{
+  position:relative;padding-left:2.1rem;
+  font-size:.94rem;line-height:1.45;color:var(--ink);font-feature-settings:"lnum";
+}
+.pub-comp-list li::before{
+  counter-increment:pubcomp;content:counter(pubcomp);
+  position:absolute;left:0;top:0;
+  width:1.55rem;height:1.55rem;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--accent,#1E3A5F);color:#fff;
+  font-size:.78rem;font-weight:700;font-feature-settings:"lnum";
+}
+.pub-actions{display:flex;gap:.85rem;flex-wrap:wrap}
+
 /* ---------- Образование ---------- */
 .edu-list{display:grid;gap:0;border-top:1px solid var(--line)}
 .edu{
